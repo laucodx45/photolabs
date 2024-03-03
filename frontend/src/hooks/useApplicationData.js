@@ -10,7 +10,8 @@ export const ACTIONS = {
   SELECT_TOPIC: 'SELECT_TOPIC',
   CLOSE_MODAL: 'CLOSE_MODAL',
   SET_DARKMODE: 'SET_DARKMODE',
-  SET_SEARCH_INPUT: 'SET_SEARCH_INPUT'
+  SET_SEARCH_INPUT: 'SET_SEARCH_INPUT',
+  SET_FILTER_PHOTO_DATA: 'SET_FILTER_PHOTO_DATA'
 }
 
 const initialState = {
@@ -21,7 +22,8 @@ const initialState = {
   topicData: [],
   topicId: null,
   darkMode: false,
-  searchInput: ''
+  searchInput: '',
+  filterPhotoData: []
 }
 
 const useApplicationData = () => {
@@ -75,6 +77,12 @@ const useApplicationData = () => {
           ...state,
           searchInput: action.payload
         }
+      case ACTIONS.SET_FILTER_PHOTO_DATA:
+        return {
+          ...state,
+          photoData: [],
+          filterPhotoData: action.payload
+        }
       
       default:
         throw new Error (`Tried to reduce with unsupported action type: ${action.type}`);
@@ -85,9 +93,9 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/photos')
-      .then(res => dispatch({ type: 'SET_PHOTO_DATA', payload: res.data }))
-      .catch(err => console.log(`Error: ${err}`))
+    // axios.get('http://localhost:8001/api/photos')
+    //   .then(res => dispatch({ type: 'SET_PHOTO_DATA', payload: res.data }))
+    //   .catch(err => console.log(`Error: ${err}`))
 
     axios.get('http://localhost:8001/api/topics')
       .then(res => dispatch({ type: 'SET_TOPIC_DATA', payload: res.data }))
@@ -106,6 +114,14 @@ const useApplicationData = () => {
       .catch(err => console.log(`Error: ${err}`))
     }
   }, [state.topicId])
+
+  
+  useEffect(() => {
+    axios.post('http://localhost:8001/api/searchResult', {data: state.searchInput})
+      .then(res => dispatch({ type: 'SET_PHOTO_DATA', payload: res.data }))
+      .catch(err => console.log(`Error: ${err}`))
+      
+  }, [state.searchInput])
 
   return {state, dispatch};
 }
