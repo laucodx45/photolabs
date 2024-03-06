@@ -10,13 +10,13 @@ const SearchBar = (props) => {
     e.preventDefault();
     dispatch({type: 'SET_SEARCH_INPUT' , payload: ''})
   }
-
+  // set var string value, on submit, payload to set_search_input
   return (
     <div>
         {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
         <form onSubmit={(e) => { handleSubmit(e)}}>
-          <input value={state.searchInput} onChange={(e) => { dispatch({type: 'SET_SEARCH_INPUT' , payload: e.target.value}) }} placeholder='search user...'></input>
-          <button type="submit" >submit</button>
+          <input value={state.searchInput} onChange={(e) => { dispatch({type: 'SET_SEARCH_INPUT' , payload: e.target.value}) }} placeholder='Search'></input>
+          <button type="submit" >Clear</button>
         </form>
     </div>
   )

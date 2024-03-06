@@ -59,7 +59,9 @@ module.exports = db => {
           ) as photo_data
         FROM photo
         JOIN user_account ON user_account.id = photo.user_id
-        WHERE user_account.username Like '%${slicedData}%';
+        WHERE user_account.username LIKE '%${slicedData}%'
+        OR photo.city LIKE '%${slicedData}%'
+        OR photo.country LIKE '%${slicedData}%'
       `).then(({ rows }) => {
         response.json(rows[0].photo_data);
       });

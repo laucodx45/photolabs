@@ -118,7 +118,13 @@ const useApplicationData = () => {
   
   useEffect(() => {
     axios.post('http://localhost:8001/api/searchResult', {data: state.searchInput})
-      .then(res => dispatch({ type: 'SET_PHOTO_DATA', payload: res.data }))
+      .then(res => {
+        // res.data,length === 0 ? :
+        // if res.data.length is 0, we want to change state of fetchdata
+        // create a component that display cannot find result if fetchdata is false
+        
+        dispatch({ type: 'SET_PHOTO_DATA', payload: res.data })
+      })
       .catch(err => console.log(`Error: ${err}`))
       
   }, [state.searchInput])
