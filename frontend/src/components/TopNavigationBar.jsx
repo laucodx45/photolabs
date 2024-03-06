@@ -17,16 +17,15 @@ const TopNavigation = (props) => {
   }
   return (
     <div className="top-nav-bar">
-<<<<<<< HEAD
       {/* onClick nav-bar_logo, it brings user back to home page that shows all the photos */}
-      <span className="top-nav-bar__logo" onClick={() =>  dispatch({type: 'SELECT_TOPIC', payload: null})}>PhotoLabs</span>
-      <TopicList topics={topics} dispatch={dispatch} state={state} />
+      <span className="top-nav-bar__logo" onClick={() =>  {
+          dispatch({type: 'SELECT_TOPIC', payload: null})
+          dispatch({type: 'SET_SEARCH_INPUT', payload: '' })
+        }
+      }>PhotoLabs</span>
+      <TopicList dispatch={dispatch} state={state} />
       <FontAwesomeIcon className="moon" icon={faMoon} onClick={() => {toogleDarkMode()}}/>
       <SearchBar dispatch={dispatch} state={state} />
-=======
-      <span className="top-nav-bar__logo" onClick={ () => dispatch({type: 'SELECT_TOPIC', payload: null})}>PhotoLabs</span>
-      <TopicList dispatch={dispatch} state={state} />
->>>>>>> main
       <FavBadge isFavPhotoExist={isFavPhotoExist}/>
     </div>
   )
