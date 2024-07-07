@@ -12,11 +12,12 @@ const HomeRoute = () => {
   const {state} = useContext(applicationContext);
   const modalState = state.modalState;
   const photoData = state.photoData;
+  const dropdownMenuState = state.dropdownMenu;
 
   return (
     <div className="home-route">
       <TopNavigation />
-      {/* <DropdownListItems></DropdownListItems> */}
+      {dropdownMenuState && <DropdownListItems />}
       {/* if photoData length === 0, display spinner */}
       {photoData.length === 0 && <Loader/>}
       <PhotoList />

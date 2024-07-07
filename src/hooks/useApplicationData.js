@@ -9,7 +9,8 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   SELECT_TOPIC: 'SELECT_TOPIC',
   CLOSE_MODAL: 'CLOSE_MODAL',
-  SET_DARKMODE: 'SET_DARKMODE'
+  SET_DARKMODE: 'SET_DARKMODE',
+  SET_DROPDOWN_MENU: 'SET_DROPDOWN_MENU'
 }
 
 const serverUrl = "https://photolabsapi.onrender.com"
@@ -21,7 +22,8 @@ const initialState = {
   photoData: [],
   topicData: [],
   topicId: null,
-  darkMode: false
+  darkMode: false,
+  dropdownMenu: false
 }
 
 const useApplicationData = () => {
@@ -79,7 +81,11 @@ const useApplicationData = () => {
           ...state,
           darkMode: !state.darkMode
         }
-      
+      case ACTIONS.SET_DROPDOWN_MENU:
+        return {
+          ...state,
+          dropdownMenu: !state.dropdownMenu
+        }
       default:
         throw new Error (`Tried to reduce with unsupported action type: ${action.type}`);
     }
