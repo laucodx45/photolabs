@@ -12,3 +12,9 @@
   flex: 0 1 30%;
   margin: 5px;
 }
+
+@media (max-width: 767px) {
+  .photo-list {
+    justify-content: center;
+  }
+}
