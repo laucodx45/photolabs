@@ -25,3 +25,17 @@
   text-underline-position: auto;
   margin-left: 24px;
 }
+
+.menu-icon {
+  display: none;
+}
+@media (max-width: 767px) {
+
+  .top-nav-bar__logo {
+    font-size: 20px;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}

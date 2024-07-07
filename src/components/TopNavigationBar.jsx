@@ -4,7 +4,7 @@ import TopicList from 'components/TopicList';
 import FavBadge from 'components/FavBadge';
 import '../styles/TopNavigationBar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faMoon, faBars } from '@fortawesome/free-solid-svg-icons'
 import { applicationContext } from 'hooks/applicationContext';
 import { useContext } from 'react';
 
@@ -24,6 +24,7 @@ const TopNavigation = () => {
       <TopicList dispatch={dispatch} state={state} />
       <FontAwesomeIcon className="moon" icon={faMoon} onClick={toogleDarkMode}/>
       <FavBadge isFavPhotoExist={isFavPhotoExist}/>
+      {/* <FontAwesomeIcon className="menu-icon" icon={faBars} /> */}
     </div>
   )
 }

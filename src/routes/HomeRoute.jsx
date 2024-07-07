@@ -7,6 +7,7 @@ import Loader from 'components/Spinner';
 import '../styles/HomeRoute.scss';
 import { applicationContext } from 'hooks/applicationContext';
 
+import DropdownListItems from 'components/DropdownListItem';
 const HomeRoute = () => {
   const {state} = useContext(applicationContext);
   const modalState = state.modalState;
@@ -15,6 +16,7 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       <TopNavigation />
+      {/* <DropdownListItems></DropdownListItems> */}
       {/* if photoData length === 0, display spinner */}
       {photoData.length === 0 && <Loader/>}
       <PhotoList />

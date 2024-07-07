@@ -21,3 +21,9 @@
   color: var(--topic-list__item-color);
   font-size: 18px;
 }
+
+@media (max-width: 767px) {
+  .topic-list__item span {
+    display: none;
+  }
+}
