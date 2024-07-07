@@ -18,7 +18,11 @@ const TopNavigation = () => {
   }
 
   const toogleDropdownMenu = () =>{
-    dispatch({type:'SET_DROPDOWN_MENU'})
+
+    if (state.topicData !== null) {
+      dispatch({type:'SET_DROPDOWN_MENU'})
+    }
+    return
   }
 
   return (

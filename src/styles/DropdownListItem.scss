@@ -1,17 +1,19 @@
 .dropdown-menu {
-  position: absolute;
-  top: 10%;
-  left: 58%;
+  position: relative;
+  top: 12%;
+  left: 0%;
   background-color: var(--app-background-color);
   list-style: none;
   margin: 0;
   padding: 0;
   border: 1px solid #ccc;
-  min-width: 150px;
   border-radius: 5px;
   display: block;
+  width: 100%;
+  height: 23%;
 
   .topic-list__item {
     line-height: 36px;
   }
 }
+
