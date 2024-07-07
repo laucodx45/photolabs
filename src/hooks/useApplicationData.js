@@ -120,6 +120,17 @@ const useApplicationData = () => {
     }
   }, [state.topicId])
 
+  useEffect(() => {
+    let timer;
+    if (state.dropdownMenu) {
+      timer = setTimeout(() => {
+        dispatch({ type: 'SET_DROPDOWN_MENU' });
+      }, 4000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [state.dropdownMenu, dispatch]);
+
   return {state, dispatch};
 }
 
