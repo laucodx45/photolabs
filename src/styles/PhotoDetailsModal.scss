@@ -76,3 +76,18 @@
   margin-left: 8px;
   color: var(--font-color);
 }
+
+@media (max-width: 767px) {
+  .photo-details-modal {
+    width: 95%;
+    height: 80%;
+
+    .photo-list {
+      margin-right: 35px;
+    }
+  }
+
+  .photo-details-modal__images {
+    margin-left: 18px;
+  }
+}
